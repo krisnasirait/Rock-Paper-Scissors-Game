@@ -7,12 +7,51 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/text_kertas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/qarmic_sans"
+        android:text="Kertas"
+        android:textSize="25dp"
+        android:rotation="-20"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/yellow"/>
+
+    <TextView
+        android:id="@+id/text_gunting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rotation="-20"
+        android:text="Gunting"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/qarmic_sans"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_kertas"
+        android:textColor="@color/green"/>
+
+    <TextView
+        android:id="@+id/text_batu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Batu"
+        android:rotation="-20"
+        android:textSize="25dp"
+        android:fontFamily="@font/qarmic_sans"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_gunting"
+        android:textColor="@color/pink"
+        android:textStyle="bold"/>
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
