@@ -8,10 +8,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.RockPaperScissors">
-        <activity
-            android:name=".SplashScreen"
-            android:exported="false" />
+        android:theme="@style/Theme.RockPaperScissors"
+        android:largeHeap="true"
+        android:hardwareAccelerated="false">
         <activity
             android:name=".MainActivity"
             android:exported="true">
