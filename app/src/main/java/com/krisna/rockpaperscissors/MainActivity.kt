@@ -16,6 +16,25 @@ class MainActivity : AppCompatActivity() {
         val view = layout.root
         setContentView(view)
 
+        layout.btnRefresh.setOnClickListener {
+
+            layout.textVersus.text = "VS"
+
+            layout.btnBatu.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+            layout.btnKertas.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+            layout.btnGunting.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+
+            layout.btnBatuCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+            layout.btnKertasCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+            layout.btnGuntingCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+
+            layout.textWin.text = ""
+            layout.textMenang.text = ""
+            layout.layoutWinner.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+        }
+    }
+
+    private fun btnActivated(){
         layout.btnBatu.setOnClickListener {
             layout.textVersus.text = ""
             layout.btnBatu.setBackgroundResource(R.drawable.roundcorner)
@@ -33,6 +52,10 @@ class MainActivity : AppCompatActivity() {
             layout.btnGunting.setBackgroundResource(R.drawable.roundcorner)
             checkResult("gunting", getBotInput())
         }
+    }
+
+    private fun btnDeactivated(){
+
     }
 
     private fun getBotInput(): String {
