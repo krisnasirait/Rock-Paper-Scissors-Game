@@ -92,7 +92,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:backgroundTint="@android:color/transparent"
+            android:background="@color/white"
             android:scaleType="fitCenter"
             android:src="@drawable/kertas" />
 
@@ -102,7 +102,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:backgroundTint="@android:color/transparent"
+            android:background="@color/white"
             android:scaleType="fitCenter"
             android:src="@drawable/gunting" />
     </LinearLayout>
@@ -129,7 +129,6 @@
             android:id="@+id/text_menang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
     </LinearLayout>
 
     <TextView
@@ -161,7 +160,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:backgroundTint="@android:color/transparent"
+            android:background="@color/white"
             android:scaleType="fitCenter"
             android:src="@drawable/batu" />
 
@@ -170,7 +169,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:backgroundTint="@android:color/transparent"
+            android:background="@color/white"
             android:scaleType="fitCenter"
             android:src="@drawable/kertas" />
 
@@ -180,10 +179,9 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:backgroundTint="@android:color/transparent"
+            android:background="@color/white"
             android:scaleType="fitCenter"
             android:src="@drawable/gunting" />
-
     </LinearLayout>
 
     <ImageButton
@@ -192,7 +190,7 @@
         android:layout_height="50dp"
         android:src="@drawable/refresh"
         android:scaleType="fitCenter"
-        android:backgroundTint="@android:color/transparent"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 

@@ -21,11 +21,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         layout.btnKertas.setOnClickListener {
-            layout.btnKertas.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_grey))
+            layout.btnKertas.setBackgroundResource(R.drawable.roundcorner)
         }
 
         layout.btnGunting.setOnClickListener {
-            layout.btnGunting.setBackgroundColor(ContextCompat.getColor(this, R.color.blue_grey))
+            layout.btnGunting.setBackgroundResource(R.drawable.roundcorner)
         }
     }
 
