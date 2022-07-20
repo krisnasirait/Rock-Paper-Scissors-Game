@@ -17,21 +17,38 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         layout.btnBatu.setOnClickListener {
+            layout.textVersus.text = ""
             layout.btnBatu.setBackgroundResource(R.drawable.roundcorner)
+            checkResult("batu", getBotInput())
         }
 
         layout.btnKertas.setOnClickListener {
+            layout.textVersus.text = ""
             layout.btnKertas.setBackgroundResource(R.drawable.roundcorner)
+            checkResult("kertas", getBotInput())
         }
 
         layout.btnGunting.setOnClickListener {
+            layout.textVersus.text = ""
             layout.btnGunting.setBackgroundResource(R.drawable.roundcorner)
+            checkResult("gunting", getBotInput())
         }
     }
 
-    private fun getBotInput(): String{
-        val options = arrayOf("Rock", "Paper", "Scissors")
+    private fun getBotInput(): String {
+        val options = arrayOf("batu", "kertas", "gunting")
         val botOptions: Int = Random.nextInt(options.size)
+        when {
+            options[botOptions] == "batu" -> {
+                layout.btnBatuCom.setBackgroundResource(R.drawable.roundcorner)
+            }
+            options[botOptions] == "kertas" -> {
+                layout.btnKertasCom.setBackgroundResource(R.drawable.roundcorner)
+            }
+            options[botOptions] == "gunting" -> {
+                layout.btnGuntingCom.setBackgroundResource(R.drawable.roundcorner)
+            }
+        }
         return options[botOptions]
     }
 
@@ -46,14 +63,24 @@ class MainActivity : AppCompatActivity() {
         ) {
             layout.textWin.text = "Pemain 1"
             layout.textMenang.text = "MENANG!"
-            layout.layoutWinner.setBackgroundColor(ContextCompat.getColor(this, R.color.light_green))
+            layout.layoutWinner.setBackgroundColor(
+                ContextCompat.getColor(
+                    this,
+                    R.color.light_green
+                )
+            )
         } else if (comInput.equals("batu", true) && playerInput.equals("gunting", true)
             || comInput.equals("kertas", true) && playerInput.equals("batu", true)
             || comInput.equals("gunting", true) && playerInput.equals("kertas", true)
         ) {
             layout.textWin.text = "Pemain 2"
             layout.textMenang.text = "MENANG!"
-            layout.layoutWinner.setBackgroundColor(ContextCompat.getColor(this, R.color.light_green))
+            layout.layoutWinner.setBackgroundColor(
+                ContextCompat.getColor(
+                    this,
+                    R.color.light_green
+                )
+            )
         }
     }
 }
