@@ -16,7 +16,10 @@ class MainActivity : AppCompatActivity() {
         val view = layout.root
         setContentView(view)
 
+        btnActivated()
+
         layout.btnRefresh.setOnClickListener {
+            btnActivated()
 
             layout.textVersus.text = "VS"
 
@@ -35,26 +38,37 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun btnActivated(){
+
+        layout.btnGunting.setClickable(true)
+        layout.btnKertas.setClickable(true)
+        layout.btnBatu.setClickable(true)
+
         layout.btnBatu.setOnClickListener {
             layout.textVersus.text = ""
             layout.btnBatu.setBackgroundResource(R.drawable.roundcorner)
             checkResult("batu", getBotInput())
+            btnDeactivated()
         }
 
         layout.btnKertas.setOnClickListener {
             layout.textVersus.text = ""
             layout.btnKertas.setBackgroundResource(R.drawable.roundcorner)
             checkResult("kertas", getBotInput())
+            btnDeactivated()
         }
 
         layout.btnGunting.setOnClickListener {
             layout.textVersus.text = ""
             layout.btnGunting.setBackgroundResource(R.drawable.roundcorner)
             checkResult("gunting", getBotInput())
+            btnDeactivated()
         }
     }
 
     private fun btnDeactivated(){
+        layout.btnGunting.setClickable(false)
+        layout.btnKertas.setClickable(false)
+        layout.btnBatu.setClickable(false)
 
     }
 
