@@ -78,6 +78,7 @@
 
         <ImageButton
             android:id="@+id/btn_batu"
+            android:layout_marginTop="10dp"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
@@ -89,6 +90,7 @@
 
         <ImageButton
             android:id="@+id/btn_kertas"
+            android:layout_marginTop="10dp"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
@@ -99,6 +101,7 @@
 
         <ImageButton
             android:id="@+id/btn_gunting"
+            android:layout_marginTop="10dp"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
@@ -157,6 +160,7 @@
 
         <ImageButton
             android:id="@+id/btn_batuCom"
+            android:layout_marginTop="10dp"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
@@ -166,6 +170,7 @@
 
         <ImageButton
             android:id="@+id/btn_kertasCom"
+            android:layout_marginTop="10dp"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
@@ -176,6 +181,7 @@
 
         <ImageButton
             android:id="@+id/btn_guntingCom"
+            android:layout_marginTop="10dp"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
