@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/text_kertas"
@@ -70,22 +71,24 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:orientation="vertical"
+        android:backgroundTint="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_pemainOne">
 
 
         <ImageButton
-            android:id="@+id/image_batu"
+            android:id="@+id/btn_batu"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:backgroundTint="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:src="@drawable/batu" />
+            android:background="@color/white"
+            android:src="@drawable/batu"
+            android:padding="10dp"/>
 
 
         <ImageButton
-            android:id="@+id/image_kertas"
+            android:id="@+id/btn_kertas"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
@@ -95,7 +98,7 @@
 
 
         <ImageButton
-            android:id="@+id/image_gunting"
+            android:id="@+id/btn_gunting"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
@@ -154,7 +157,7 @@
 
 
         <ImageButton
-            android:id="@+id/image_batuCom"
+            android:id="@+id/btn_batuCom"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
@@ -163,7 +166,7 @@
             android:src="@drawable/batu" />
 
         <ImageButton
-            android:id="@+id/image_kertasCom"
+            android:id="@+id/btn_kertasCom"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
@@ -173,7 +176,7 @@
 
 
         <ImageButton
-            android:id="@+id/image_guntingCom"
+            android:id="@+id/btn_guntingCom"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
