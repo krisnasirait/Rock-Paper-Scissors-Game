@@ -1,6 +1,7 @@
 package com.krisna.rockpaperscissors
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.krisna.rockpaperscissors.databinding.ActivityMainBinding
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         btnActivated()
 
         layout.btnRefresh.setOnClickListener {
+            Log.d("User Input", "Button Refresh di Click")
             btnActivated()
 
             layout.textVersus.text = "VS"
@@ -44,6 +46,7 @@ class MainActivity : AppCompatActivity() {
         layout.btnBatu.setClickable(true)
 
         layout.btnBatu.setOnClickListener {
+            Log.d("User Input", "Button Batu di Click")
             layout.textVersus.text = ""
             layout.btnBatu.setBackgroundResource(R.drawable.roundcorner)
             checkResult("batu", getBotInput())
@@ -51,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         layout.btnKertas.setOnClickListener {
+            Log.d("User Input", "Button Kertas di Click")
             layout.textVersus.text = ""
             layout.btnKertas.setBackgroundResource(R.drawable.roundcorner)
             checkResult("kertas", getBotInput())
@@ -58,6 +62,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         layout.btnGunting.setOnClickListener {
+            Log.d("User Input", "Button Gunting di Click")
             layout.textVersus.text = ""
             layout.btnGunting.setBackgroundResource(R.drawable.roundcorner)
             checkResult("gunting", getBotInput())
@@ -77,12 +82,15 @@ class MainActivity : AppCompatActivity() {
         val botOptions: Int = Random.nextInt(options.size)
         when {
             options[botOptions] == "batu" -> {
+                Log.d("Bot Input", "Bot memilih batu")
                 layout.btnBatuCom.setBackgroundResource(R.drawable.roundcorner)
             }
             options[botOptions] == "kertas" -> {
+                Log.d("Bot Input", "Bot memilih kertas")
                 layout.btnKertasCom.setBackgroundResource(R.drawable.roundcorner)
             }
             options[botOptions] == "gunting" -> {
+                Log.d("Bot Input", "Bot memilih gunting")
                 layout.btnGuntingCom.setBackgroundResource(R.drawable.roundcorner)
             }
         }
@@ -91,6 +99,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkResult(playerInput: String, comInput: String) {
         if (playerInput.equals(comInput, true)) {
+            Log.d("Hasil", "DRAW")
             layout.textWin.text = "DRAW"
             layout.textMenang.text = ""
             layout.layoutWinner.setBackgroundColor(ContextCompat.getColor(this, R.color.blue))
@@ -98,6 +107,7 @@ class MainActivity : AppCompatActivity() {
             || playerInput.equals("kertas", true) && comInput.equals("batu", true)
             || playerInput.equals("gunting", true) && comInput.equals("kertas", true)
         ) {
+            Log.d("Hasil", "Pemain 1 Menang")
             layout.textWin.text = "Pemain 1"
             layout.textMenang.text = "MENANG!"
             layout.layoutWinner.setBackgroundColor(
@@ -110,6 +120,7 @@ class MainActivity : AppCompatActivity() {
             || comInput.equals("kertas", true) && playerInput.equals("batu", true)
             || comInput.equals("gunting", true) && playerInput.equals("kertas", true)
         ) {
+            Log.d("Hasil", "Pemain 2 Menang")
             layout.textWin.text = "Pemain 2"
             layout.textMenang.text = "MENANG!"
             layout.layoutWinner.setBackgroundColor(
