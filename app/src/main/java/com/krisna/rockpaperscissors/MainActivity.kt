@@ -62,15 +62,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun btnActivated() {
-        layout.btnGunting.isClickable = true
-        layout.btnKertas.isClickable = true
-        layout.btnBatu.isClickable = true
+        layout.btnGunting.isEnabled = true
+        layout.btnKertas.isEnabled = true
+        layout.btnBatu.isEnabled = true
     }
 
     private fun btnDeactivated() {
-        layout.btnGunting.isClickable = false
-        layout.btnKertas.isClickable = false
-        layout.btnBatu.isClickable = false
+        layout.btnGunting.isEnabled = false
+        layout.btnKertas.isEnabled = false
+        layout.btnBatu.isEnabled = false
 
     }
 
