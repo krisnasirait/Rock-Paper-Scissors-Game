@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         layout.btnBatu.setClickable(true)
 
         layout.btnBatu.setOnClickListener {
-            Log.d("User Input", "Button Batu di Click")
+            Log.d("User Input", "Batu")
             layout.textVersus.text = ""
             layout.btnBatu.setBackgroundResource(R.drawable.roundcorner)
             checkResult("batu", getBotInput())
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         layout.btnKertas.setOnClickListener {
-            Log.d("User Input", "Button Kertas di Click")
+            Log.d("User Input", "Kertas")
             layout.textVersus.text = ""
             layout.btnKertas.setBackgroundResource(R.drawable.roundcorner)
             checkResult("kertas", getBotInput())
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         layout.btnGunting.setOnClickListener {
-            Log.d("User Input", "Button Gunting di Click")
+            Log.d("User Input", "Gunting")
             layout.textVersus.text = ""
             layout.btnGunting.setBackgroundResource(R.drawable.roundcorner)
             checkResult("gunting", getBotInput())
@@ -82,15 +82,15 @@ class MainActivity : AppCompatActivity() {
         val botOptions: Int = Random.nextInt(options.size)
         when {
             options[botOptions] == "batu" -> {
-                Log.d("Bot Input", "Bot memilih batu")
+                Log.d("Bot Input", "Batu")
                 layout.btnBatuCom.setBackgroundResource(R.drawable.roundcorner)
             }
             options[botOptions] == "kertas" -> {
-                Log.d("Bot Input", "Bot memilih kertas")
+                Log.d("Bot Input", "Kertas")
                 layout.btnKertasCom.setBackgroundResource(R.drawable.roundcorner)
             }
             options[botOptions] == "gunting" -> {
-                Log.d("Bot Input", "Bot memilih gunting")
+                Log.d("Bot Input", "Gunting")
                 layout.btnGuntingCom.setBackgroundResource(R.drawable.roundcorner)
             }
         }
