@@ -17,34 +17,6 @@ class MainActivity : AppCompatActivity() {
         val view = layout.root
         setContentView(view)
 
-        btnActivated()
-
-        layout.btnRefresh.setOnClickListener {
-            Log.d("User Input", "Button Refresh di Click")
-            btnActivated()
-
-            layout.textVersus.text = "VS"
-
-            layout.btnBatu.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-            layout.btnKertas.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-            layout.btnGunting.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-
-            layout.btnBatuCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-            layout.btnKertasCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-            layout.btnGuntingCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-
-            layout.textWin.text = ""
-            layout.textMenang.text = ""
-            layout.layoutWinner.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-        }
-    }
-
-    private fun btnActivated(){
-
-        layout.btnGunting.setClickable(true)
-        layout.btnKertas.setClickable(true)
-        layout.btnBatu.setClickable(true)
-
         layout.btnBatu.setOnClickListener {
             Log.d("User Input", "Batu")
             layout.textVersus.text = ""
@@ -68,12 +40,37 @@ class MainActivity : AppCompatActivity() {
             checkResult("gunting", getBotInput())
             btnDeactivated()
         }
+
+        layout.btnRefresh.setOnClickListener {
+            Log.d("User Input", "Button Refresh di Click")
+            btnActivated()
+
+            layout.textVersus.text = "VS"
+
+            layout.btnBatu.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+            layout.btnKertas.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+            layout.btnGunting.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+
+            layout.btnBatuCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+            layout.btnKertasCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+            layout.btnGuntingCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+
+            layout.textWin.text = ""
+            layout.textMenang.text = ""
+            layout.layoutWinner.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+        }
     }
 
-    private fun btnDeactivated(){
-        layout.btnGunting.setClickable(false)
-        layout.btnKertas.setClickable(false)
-        layout.btnBatu.setClickable(false)
+    private fun btnActivated() {
+        layout.btnGunting.isEnabled = true
+        layout.btnKertas.isEnabled = true
+        layout.btnBatu.isEnabled = true
+    }
+
+    private fun btnDeactivated() {
+        layout.btnGunting.isEnabled = false
+        layout.btnKertas.isEnabled = false
+        layout.btnBatu.isEnabled = false
 
     }
 
