@@ -112,7 +112,7 @@
 
     <LinearLayout
         android:id="@+id/layout_winner"
-        android:layout_width="150dp"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="vertical"
