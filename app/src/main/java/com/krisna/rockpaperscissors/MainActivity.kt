@@ -38,16 +38,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun btnActivated() {
-        layout.btnGunting.isEnabled = true
-        layout.btnKertas.isEnabled = true
-        layout.btnBatu.isEnabled = true
-    }
-
-    private fun btnDeactivated() {
-        layout.btnGunting.isEnabled = false
-        layout.btnKertas.isEnabled = false
-        layout.btnBatu.isEnabled = false
+    private fun btnValue(hasTo: Boolean) {
+        layout.btnGunting.isEnabled = hasTo
+        layout.btnKertas.isEnabled = hasTo
+        layout.btnBatu.isEnabled = hasTo
     }
 
     private fun playerInput(textVersus: String, playerInput: String) {
@@ -55,20 +49,20 @@ class MainActivity : AppCompatActivity() {
             layout.textVersus.text = textVersus
             layout.btnBatu.setBackgroundResource(R.drawable.roundcorner)
             checkResult("batu", getBotInput())
-            btnDeactivated()
+            btnValue(false)
         } else if (playerInput == "Kertas") {
             layout.textVersus.text = textVersus
             layout.btnKertas.setBackgroundResource(R.drawable.roundcorner)
             checkResult("kertas", getBotInput())
-            btnDeactivated()
+            btnValue(false)
 
         } else if (playerInput == "Gunting") {
             layout.textVersus.text = textVersus
             layout.btnGunting.setBackgroundResource(R.drawable.roundcorner)
             checkResult("gunting", getBotInput())
-            btnDeactivated()
+            btnValue(false)
         } else if (playerInput == "Reset") {
-            btnActivated()
+            btnValue(true)
             layout.textVersus.text = "VS"
 
             layout.btnBatu.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
