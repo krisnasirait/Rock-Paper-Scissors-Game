@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         layout.btnRefresh.setOnClickListener {
             Log.d("User Input", "Button Refresh di Click")
-            playerInput("", "Reset")
+            playerInput("VS", "Reset")
         }
     }
 
@@ -45,37 +45,42 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun playerInput(textVersus: String, playerInput: String) {
-        if (playerInput == "Batu") {
-            layout.textVersus.text = textVersus
-            layout.btnBatu.setBackgroundResource(R.drawable.roundcorner)
-            checkResult("batu", getBotInput())
-            btnValue(false)
-        } else if (playerInput == "Kertas") {
-            layout.textVersus.text = textVersus
-            layout.btnKertas.setBackgroundResource(R.drawable.roundcorner)
-            checkResult("kertas", getBotInput())
-            btnValue(false)
+        when (playerInput) {
+            "Batu" -> {
+                layout.textVersus.text = textVersus
+                layout.btnBatu.setBackgroundResource(R.drawable.roundcorner)
+                checkResult("batu", getBotInput())
+                btnValue(false)
+            }
+            "Kertas" -> {
+                layout.textVersus.text = textVersus
+                layout.btnKertas.setBackgroundResource(R.drawable.roundcorner)
+                checkResult("kertas", getBotInput())
+                btnValue(false)
 
-        } else if (playerInput == "Gunting") {
-            layout.textVersus.text = textVersus
-            layout.btnGunting.setBackgroundResource(R.drawable.roundcorner)
-            checkResult("gunting", getBotInput())
-            btnValue(false)
-        } else if (playerInput == "Reset") {
-            btnValue(true)
-            layout.textVersus.text = "VS"
+            }
+            "Gunting" -> {
+                layout.textVersus.text = textVersus
+                layout.btnGunting.setBackgroundResource(R.drawable.roundcorner)
+                checkResult("gunting", getBotInput())
+                btnValue(false)
+            }
+            "Reset" -> {
+                btnValue(true)
+                layout.textVersus.text = textVersus
 
-            layout.btnBatu.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-            layout.btnKertas.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-            layout.btnGunting.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                layout.btnBatu.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                layout.btnKertas.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                layout.btnGunting.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
 
-            layout.btnBatuCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-            layout.btnKertasCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-            layout.btnGuntingCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                layout.btnBatuCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                layout.btnKertasCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                layout.btnGuntingCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
 
-            layout.textWin.text = ""
-            layout.textMenang.text = ""
-            layout.textWin.setBackgroundResource(R.drawable.backround_white)
+                layout.textWin.text = ""
+                layout.textMenang.text = ""
+                layout.textWin.setBackgroundResource(R.drawable.backround_white)
+            }
         }
 
     }
