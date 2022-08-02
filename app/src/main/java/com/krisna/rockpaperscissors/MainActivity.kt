@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
             layout.btnGunting.setBackgroundResource(R.drawable.roundcorner)
             checkResult("gunting", getBotInput())
             btnDeactivated()
-        } else if (buttonClicked == "Reset") {
+        } else if (playerInput == "Reset") {
             btnActivated()
             layout.textVersus.text = "VS"
 
