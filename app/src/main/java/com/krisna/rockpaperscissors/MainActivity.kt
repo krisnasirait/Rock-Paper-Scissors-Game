@@ -19,58 +19,69 @@ class MainActivity : AppCompatActivity() {
 
         layout.btnBatu.setOnClickListener {
             Log.d("User Input", "Batu")
-            layout.textVersus.text = ""
-            layout.btnBatu.setBackgroundResource(R.drawable.roundcorner)
-            checkResult("batu", getBotInput())
-            btnDeactivated()
+            playerInput("", "Batu")
         }
 
         layout.btnKertas.setOnClickListener {
             Log.d("User Input", "Kertas")
-            layout.textVersus.text = ""
-            layout.btnKertas.setBackgroundResource(R.drawable.roundcorner)
-            checkResult("kertas", getBotInput())
-            btnDeactivated()
+            playerInput("", "Kertas")
         }
 
         layout.btnGunting.setOnClickListener {
             Log.d("User Input", "Gunting")
-            layout.textVersus.text = ""
-            layout.btnGunting.setBackgroundResource(R.drawable.roundcorner)
-            checkResult("gunting", getBotInput())
-            btnDeactivated()
+            playerInput("", "Gunting")
         }
 
         layout.btnRefresh.setOnClickListener {
             Log.d("User Input", "Button Refresh di Click")
-            btnActivated()
-
-            layout.textVersus.text = "VS"
-
-            layout.btnBatu.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-            layout.btnKertas.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-            layout.btnGunting.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-
-            layout.btnBatuCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-            layout.btnKertasCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-            layout.btnGuntingCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-
-            layout.textWin.text = ""
-            layout.textMenang.text = ""
-            layout.layoutWinner.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+            playerInput("VS", "Reset")
         }
     }
 
-    private fun btnActivated() {
-        layout.btnGunting.isEnabled = true
-        layout.btnKertas.isEnabled = true
-        layout.btnBatu.isEnabled = true
+    private fun btnValue(hasTo: Boolean) {
+        layout.btnGunting.isEnabled = hasTo
+        layout.btnKertas.isEnabled = hasTo
+        layout.btnBatu.isEnabled = hasTo
     }
 
-    private fun btnDeactivated() {
-        layout.btnGunting.isEnabled = false
-        layout.btnKertas.isEnabled = false
-        layout.btnBatu.isEnabled = false
+    private fun playerInput(textVersus: String, btnPlayer: String) {
+        when (btnPlayer) {
+            "Batu" -> {
+                layout.textVersus.text = textVersus
+                layout.btnBatu.setBackgroundResource(R.drawable.roundcorner)
+                checkResult("batu", getBotInput())
+                btnValue(false)
+            }
+            "Kertas" -> {
+                layout.textVersus.text = textVersus
+                layout.btnKertas.setBackgroundResource(R.drawable.roundcorner)
+                checkResult("kertas", getBotInput())
+                btnValue(false)
+
+            }
+            "Gunting" -> {
+                layout.textVersus.text = textVersus
+                layout.btnGunting.setBackgroundResource(R.drawable.roundcorner)
+                checkResult("gunting", getBotInput())
+                btnValue(false)
+            }
+            "Reset" -> {
+                btnValue(true)
+                layout.textVersus.text = textVersus
+
+                layout.btnBatu.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                layout.btnKertas.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                layout.btnGunting.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+
+                layout.btnBatuCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                layout.btnKertasCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                layout.btnGuntingCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+
+                layout.textWin.text = ""
+                layout.textMenang.text = ""
+                layout.textWin.setBackgroundResource(R.drawable.backround_white)
+            }
+        }
 
     }
 
@@ -99,33 +110,25 @@ class MainActivity : AppCompatActivity() {
             Log.d("Hasil", "DRAW")
             layout.textWin.text = "DRAW"
             layout.textMenang.text = ""
-            layout.layoutWinner.setBackgroundColor(ContextCompat.getColor(this, R.color.blue))
+            layout.textWin.setBackgroundResource(R.drawable.backround_draw)
         } else if (playerInput.equals("batu", true) && comInput.equals("gunting", true)
             || playerInput.equals("kertas", true) && comInput.equals("batu", true)
             || playerInput.equals("gunting", true) && comInput.equals("kertas", true)
         ) {
             Log.d("Hasil", "Pemain 1 Menang")
-            layout.textWin.text = "Pemain 1"
-            layout.textMenang.text = "MENANG!"
-            layout.layoutWinner.setBackgroundColor(
-                ContextCompat.getColor(
-                    this,
-                    R.color.light_green
-                )
-            )
+            layout.textWin.text = "Pemain 1\nMENANG!"
+//            layout.textMenang.text = "MENANG!"
+            layout.textWin.setBackgroundResource(R.drawable.backround_win)
+            layout.textMenang.setBackgroundResource(R.drawable.backround_win)
         } else if (comInput.equals("batu", true) && playerInput.equals("gunting", true)
             || comInput.equals("kertas", true) && playerInput.equals("batu", true)
             || comInput.equals("gunting", true) && playerInput.equals("kertas", true)
         ) {
             Log.d("Hasil", "Pemain 2 Menang")
-            layout.textWin.text = "Pemain 2"
-            layout.textMenang.text = "MENANG!"
-            layout.layoutWinner.setBackgroundColor(
-                ContextCompat.getColor(
-                    this,
-                    R.color.light_green
-                )
-            )
+            layout.textWin.text = "Pemain 2\nMENANG!"
+//            layout.textMenang.text = "MENANG!"
+            layout.textWin.setBackgroundResource(R.drawable.backround_win)
+            layout.textMenang.setBackgroundResource(R.drawable.backround_win)
         }
     }
 }
