@@ -44,8 +44,8 @@ class MainActivity : AppCompatActivity() {
         layout.btnBatu.isEnabled = hasTo
     }
 
-    private fun playerInput(textVersus: String, playerInput: String) {
-        when (playerInput) {
+    private fun playerInput(textVersus: String, btnPlayer: String) {
+        when (btnPlayer) {
             "Batu" -> {
                 layout.textVersus.text = textVersus
                 layout.btnBatu.setBackgroundResource(R.drawable.roundcorner)
