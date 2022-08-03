@@ -6,49 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".SplashActivity">
 
-    <TextView
-        android:id="@+id/text_kertas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_kertas"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:fontFamily="@font/qarmic_sans"
-        android:textStyle="bold"
-        android:textColor="@color/yellow"
-        android:textSize="40sp"
-        android:layout_marginTop="100dp"
-        android:rotation="-10"
-        android:layout_marginStart="-30dp"/>
-
-    <TextView
-        android:id="@+id/text_gunting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_gunting"
-        app:layout_constraintTop_toBottomOf="@id/text_kertas"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:fontFamily="@font/qarmic_sans"
-        android:textStyle="bold"
-        android:textColor="@color/green"
-        android:textSize="40sp"
-        android:rotation="-10"/>
-
-    <TextView
-        android:id="@+id/text_batu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_batu"
-        app:layout_constraintTop_toBottomOf="@id/text_gunting"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:fontFamily="@font/qarmic_sans"
-        android:textStyle="bold"
-        android:textColor="@color/pink"
-        android:textSize="40sp"
-        android:rotation="-10"
-        android:layout_marginEnd="-30dp"/>
+   <ImageView
+       android:id="@+id/logo"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+       android:layout_marginTop="100dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
