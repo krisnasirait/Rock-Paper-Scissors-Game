@@ -1,9 +1,10 @@
-package com.krisna.rockpaperscissors
+package com.krisna.rockpaperscissors.activity
 
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.krisna.rockpaperscissors.R
 import com.krisna.rockpaperscissors.databinding.ActivityMainBinding
 import kotlin.random.Random
 

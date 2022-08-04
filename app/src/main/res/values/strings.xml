@@ -6,4 +6,13 @@
     <string name="title_pemain1">Pemain 1</string>
     <string name="title_COM">COM</string>
     <string name="vs">VS</string>
+    <string name="title_pilih_lawanmu">PILIH LAWANMU</string>
+    <string name="title_ervin_vs_pemain">Ervin vs Pemain</string>
+    <string name="title_ervin_vs_cpu">Ervin vs CPU</string>
+
+    <style name="MenuTextAppearance">
+        <item name="android:fontFamily">@font/qarmic_sans</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

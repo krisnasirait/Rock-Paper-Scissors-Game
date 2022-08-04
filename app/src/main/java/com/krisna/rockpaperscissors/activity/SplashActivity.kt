@@ -1,4 +1,4 @@
-package com.krisna.rockpaperscissors
+package com.krisna.rockpaperscissors.activity
 
 import android.content.Intent
 import android.os.Bundle
