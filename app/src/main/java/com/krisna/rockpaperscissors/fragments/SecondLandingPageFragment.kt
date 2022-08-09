@@ -17,6 +17,6 @@ class SecondLandingPageFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance = SecondLandingPageFragment()
+        fun newInstance() = SecondLandingPageFragment()
     }
 }

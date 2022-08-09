@@ -22,7 +22,7 @@ class SplashActivity : AppCompatActivity() {
 
         activityScope.launch {
             delay(3000)
-            val intent = Intent(this@SplashActivity, MainActivity::class.java)
+            val intent = Intent(this@SplashActivity, LandingActivity::class.java)
             startActivity(intent)
             finish()
         }
