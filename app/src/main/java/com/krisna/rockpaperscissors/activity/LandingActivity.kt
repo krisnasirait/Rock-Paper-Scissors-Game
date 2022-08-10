@@ -27,45 +27,60 @@ class LandingActivity : AppCompatActivity() {
         setContentView(view)
 
 //        currentLandingPagesIndex = savedInstanceState?.getInt(KEY_PAGE_INDEX) ?: 0
-        setupLandingCarousel()
+//        setupLandingCarousel()
 
-    }
+        val pagerAdapter = LandingPageAdapter(
+            fragmentActivity = this,
+        )
 
-    private fun setupLandingCarousel() {
-        val landingPageAdapter = LandingPageAdapter(this, getLandingPages())
-        binding.vpLanding.apply {
-            adapter = landingPageAdapter
-            registerOnPageChangeCallback(object :
-                ViewPager2.OnPageChangeCallback() {
+        pagerAdapter.setFragments(
+            listOf(
+                FirstLandingPageFragment(),
+                SecondLandingPageFragment(),
+                ThirdLandingPageFragment()
+            )
+        )
 
-                override fun onPageScrolled(
-                    position: Int,
-                    positionOffset: Float,
-                    positionOffsetPixels: Int
-                ) {
-                    binding.ivArrow.isVisible = position != 0
-                    if (position == getLandingPages().size - 1) {
-                        //TODO add action on scroll from last landing page if need
-                    }
-//                    currentLandingPagesIndex = position
-                    if (position == 2){
-                        binding.ivArrow.setOnClickListener {
-                            val intent = Intent(this@LandingActivity, MenuActivity::class.java)
-                            startActivity(intent)
-                            finish()
-                        }
-                    }
-                }
-            })
-        }
+        binding.vpLanding.adapter = pagerAdapter
         binding.tlPageIndicator.setViewPager(binding.vpLanding)
+
     }
 
-    private fun getLandingPages() = listOf(
-        FirstLandingPageFragment.newInstance(),
-        SecondLandingPageFragment.newInstance(),
-        ThirdLandingPageFragment.newInstance(),
-    )
+//    private fun setupLandingCarousel() {
+//        val landingPageAdapter = LandingPageAdapter(this, getLandingPages())
+//        binding.vpLanding.apply {
+//            adapter = landingPageAdapter
+//            registerOnPageChangeCallback(object :
+//                ViewPager2.OnPageChangeCallback() {
+//                override fun onPageScrolled(
+//                    position: Int,
+//                    positionOffset: Float,
+//                    positionOffsetPixels: Int
+//                ) {
+//                    binding.ivArrow.isVisible = position != 0
+//                    if (position == getLandingPages().size - 1) {
+//                        //TODO add action on scroll from last landing page if need
+//                    }
+////                    currentLandingPagesIndex = position
+//                    if (position == 2){
+//                        binding.ivArrow.setOnClickListener {
+//                            val intent = Intent(this@LandingActivity, MenuActivity::class.java)
+//                            val bundle = Bundle()
+//                            startActivity(intent)
+//                            finish()
+//                        }
+//                    }
+//                }
+//            })
+//        }
+//        binding.tlPageIndicator.setViewPager(binding.vpLanding)
+//    }
+
+//    private fun getLandingPages() = listOf(
+//        FirstLandingPageFragment.newInstance(),
+//        SecondLandingPageFragment.newInstance(),
+//        ThirdLandingPageFragment.newInstance(),
+//    )
 
 //    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
 //        super.onSaveInstanceState(outState, outPersistentState)
