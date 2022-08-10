@@ -1,7 +1,9 @@
 package com.krisna.rockpaperscissors.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.viewpager2.widget.ViewPager2
@@ -15,7 +17,7 @@ import kotlin.properties.Delegates
 class LandingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLandingBinding
-    private var currentLandingPagesIndex by Delegates.notNull<Int>()
+//    private var currentLandingPagesIndex by Delegates.notNull<Int>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +26,7 @@ class LandingActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        currentLandingPagesIndex = savedInstanceState?.getInt(KEY_PAGE_INDEX) ?: 0
+//        currentLandingPagesIndex = savedInstanceState?.getInt(KEY_PAGE_INDEX) ?: 0
         setupLandingCarousel()
 
     }
@@ -45,7 +47,14 @@ class LandingActivity : AppCompatActivity() {
                     if (position == getLandingPages().size - 1) {
                         //TODO add action on scroll from last landing page if need
                     }
-                    currentLandingPagesIndex = position
+//                    currentLandingPagesIndex = position
+                    if (position == 2){
+                        binding.ivArrow.setOnClickListener {
+                            val intent = Intent(this@LandingActivity, MenuActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        }
+                    }
                 }
             })
         }
@@ -58,12 +67,12 @@ class LandingActivity : AppCompatActivity() {
         ThirdLandingPageFragment.newInstance(),
     )
 
-    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
-        super.onSaveInstanceState(outState, outPersistentState)
-        outState.putInt(KEY_PAGE_INDEX, currentLandingPagesIndex)
-    }
-
-    companion object {
-        private const val KEY_PAGE_INDEX = "key_page_index"
-    }
+//    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+//        super.onSaveInstanceState(outState, outPersistentState)
+//        outState.putInt(KEY_PAGE_INDEX, currentLandingPagesIndex)
+//    }
+//
+//    companion object {
+//        private const val KEY_PAGE_INDEX = "key_page_index"
+//    }
 }
