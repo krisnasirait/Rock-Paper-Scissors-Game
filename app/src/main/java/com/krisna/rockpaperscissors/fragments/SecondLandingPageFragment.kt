@@ -15,8 +15,4 @@ class SecondLandingPageFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_second_landing_page, container, false)
     }
-
-    companion object {
-        fun newInstance() = SecondLandingPageFragment()
-    }
 }
