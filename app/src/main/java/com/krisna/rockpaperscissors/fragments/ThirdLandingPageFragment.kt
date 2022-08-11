@@ -2,6 +2,7 @@ package com.krisna.rockpaperscissors.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,17 +28,18 @@ class ThirdLandingPageFragment : Fragment(R.layout.fragment_third_landing_page) 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val name: String = binding.etLanding.text.toString()
 
-        val bundle = Bundle()
-        bundle.putString("name", name)
 
         binding.ivArrow.visibility = View.VISIBLE
 
         binding.ivArrow.setOnClickListener {
             activity.let {
+
+                val name: String = binding.etLanding.text.toString()
+                Log.d("nameInFragment", "$name")
+
                 val intent = Intent(it, MenuActivity::class.java)
-                intent.putExtras(bundle)
+                intent.putExtra("userName", name)
                 startActivity(intent)
             }
 
