@@ -43,8 +43,9 @@ class LandingActivity : AppCompatActivity() {
 
         binding.vpLanding.adapter = pagerAdapter
         binding.tlPageIndicator.setViewPager(binding.vpLanding)
-
     }
+
+
 
 //    private fun setupLandingCarousel() {
 //        val landingPageAdapter = LandingPageAdapter(this, getLandingPages())

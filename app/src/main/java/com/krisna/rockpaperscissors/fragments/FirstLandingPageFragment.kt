@@ -6,14 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.krisna.rockpaperscissors.R
+import com.krisna.rockpaperscissors.databinding.FragmentFirstLandingPageBinding
 
-class FirstLandingPageFragment : Fragment() {
+class FirstLandingPageFragment : Fragment(R.layout.fragment_first_landing_page) {
+
+    private var fragmentFirstBinding: FragmentFirstLandingPageBinding? = null
+    private val binding get() = fragmentFirstBinding!!
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first_landing_page, container, false)
+    ): View {
+        fragmentFirstBinding = FragmentFirstLandingPageBinding.inflate(inflater, container, false)
+        return binding.root
     }
 }

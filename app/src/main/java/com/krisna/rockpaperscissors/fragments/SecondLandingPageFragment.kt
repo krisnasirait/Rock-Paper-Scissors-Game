@@ -1,24 +1,26 @@
 package com.krisna.rockpaperscissors.fragments
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import androidx.fragment.app.Fragment
 import com.krisna.rockpaperscissors.R
-import com.krisna.rockpaperscissors.activity.LandingActivity
+import com.krisna.rockpaperscissors.databinding.FragmentSecondLandingPageBinding
 
-class SecondLandingPageFragment : Fragment() {
+class SecondLandingPageFragment : Fragment(R.layout.fragment_second_landing_page) {
+
+    private var fragmentSecondBinding: FragmentSecondLandingPageBinding? = null
+    private val binding get() = fragmentSecondBinding!!
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second_landing_page, container, false)
+        fragmentSecondBinding = FragmentSecondLandingPageBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
 }
