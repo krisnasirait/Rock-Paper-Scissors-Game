@@ -21,4 +21,10 @@ class ThirdLandingPageFragment : Fragment(R.layout.fragment_third_landing_page) 
         fragmentThirdBinding = FragmentThirdLandingPageBinding.inflate(inflater, container, false)
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.ivArrow.visibility = View.VISIBLE
+    }
 }

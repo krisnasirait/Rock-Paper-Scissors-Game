@@ -18,9 +18,15 @@ class SecondLandingPageFragment : Fragment(R.layout.fragment_second_landing_page
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         fragmentSecondBinding = FragmentSecondLandingPageBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.ivArrow.visibility = View.VISIBLE
     }
 
 }
