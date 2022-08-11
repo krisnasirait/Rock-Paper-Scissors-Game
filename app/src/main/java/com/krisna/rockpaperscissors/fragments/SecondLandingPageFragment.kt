@@ -29,4 +29,5 @@ class SecondLandingPageFragment : Fragment(R.layout.fragment_second_landing_page
         binding.ivArrow.visibility = View.VISIBLE
     }
 
+
 }

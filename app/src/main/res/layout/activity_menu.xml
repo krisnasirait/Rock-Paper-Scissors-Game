@@ -43,6 +43,7 @@
         android:id="@+id/image_menuSecond"
         android:layout_width="150dp"
         android:layout_height="150dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/landingpage2"
         app:layout_constraintTop_toBottomOf="@id/title_menuFirst"
         app:layout_constraintLeft_toLeftOf="parent"

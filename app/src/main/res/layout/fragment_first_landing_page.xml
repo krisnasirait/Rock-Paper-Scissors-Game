@@ -28,7 +28,7 @@
         android:gravity="center"
         android:fontFamily="@font/qarmic_sans"
         android:textSize="20sp"
-        android:textColor="@color/grey"
+        android:textColor="@color/black"
         android:text="@string/text_landing1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/guideline_end"
