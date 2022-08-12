@@ -2,6 +2,7 @@ package com.krisna.rockpaperscissors.activity
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.krisna.rockpaperscissors.R
@@ -17,6 +18,11 @@ class MainActivity : AppCompatActivity() {
         layout = ActivityMainBinding.inflate(layoutInflater)
         val view = layout.root
         setContentView(view)
+
+        val bundle = intent.extras
+        val name = bundle?.getString("nameUser")
+
+        layout.textPemainOne.text = "$name"
 
         layout.btnBatu.setOnClickListener {
             Log.d("User Input", "Batu")
@@ -93,14 +99,17 @@ class MainActivity : AppCompatActivity() {
             options[botOptions] == "batu" -> {
                 Log.d("Bot Input", "Batu")
                 layout.btnBatuCom.setBackgroundResource(R.drawable.roundcorner)
+                toastBot("Batu")
             }
             options[botOptions] == "kertas" -> {
                 Log.d("Bot Input", "Kertas")
                 layout.btnKertasCom.setBackgroundResource(R.drawable.roundcorner)
+                toastBot("Kertas")
             }
             options[botOptions] == "gunting" -> {
                 Log.d("Bot Input", "Gunting")
                 layout.btnGuntingCom.setBackgroundResource(R.drawable.roundcorner)
+                toastBot("Gunting")
             }
         }
         return options[botOptions]
@@ -131,5 +140,9 @@ class MainActivity : AppCompatActivity() {
             layout.textWin.setBackgroundResource(R.drawable.backround_win)
             layout.textMenang.setBackgroundResource(R.drawable.backround_win)
         }
+    }
+
+    private fun toastBot(choosen: String){
+        Toast.makeText(this, "CPU Memilih $choosen", Toast.LENGTH_SHORT).show()
     }
 }
