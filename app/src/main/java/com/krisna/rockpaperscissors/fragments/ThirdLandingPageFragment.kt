@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.krisna.rockpaperscissors.R
 import com.krisna.rockpaperscissors.activity.MenuActivity
@@ -38,9 +39,15 @@ class ThirdLandingPageFragment : Fragment(R.layout.fragment_third_landing_page) 
                 val name: String = binding.etLanding.text.toString()
                 Log.d("nameInFragment", "$name")
 
-                val intent = Intent(it, MenuActivity::class.java)
-                intent.putExtra("userName", name)
-                startActivity(intent)
+                if(name.isNotEmpty()) {
+                    val intent = Intent(it, MenuActivity::class.java)
+                    intent.putExtra("userName", name)
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(context, "Nama wajib diisi", Toast.LENGTH_SHORT).show()
+                }
+
+
             }
 
         }

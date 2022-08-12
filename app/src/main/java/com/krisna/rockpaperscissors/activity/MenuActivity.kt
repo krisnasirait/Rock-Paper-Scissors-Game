@@ -17,15 +17,22 @@ class MenuActivity : AppCompatActivity() {
 
 
         val name = intent.getStringExtra("userName")
-        val str = name?.split(" ")
-            ?.joinToString(separator = " ") { it ->
-                it.replaceFirstChar {
-                if (it.isLowerCase()) it.titlecase(
-                    Locale.getDefault()
-                ) else it.toString()
-            } }
+        val str = capitalizeFirst(name)
 
         binding.titleMenuFirst.text = "$str vs Pemain"
         binding.titleMenuSecond.text = "$str vs CPU"
     }
+}
+
+private fun capitalizeFirst(name: String?): String? {
+    val str = name?.split(" ")
+        ?.joinToString(separator = " ") { it ->
+            it.replaceFirstChar {
+                if (it.isLowerCase()) it.titlecase(
+                    Locale.getDefault()
+                ) else it.toString()
+            }
+        }
+
+    return str
 }
