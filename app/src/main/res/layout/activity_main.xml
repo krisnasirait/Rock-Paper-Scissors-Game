@@ -138,7 +138,7 @@
         android:layout_marginTop="160dp"
         android:layout_marginEnd="52dp"
         android:fontFamily="@font/qarmic_sans"
-        android:text="@string/title_COM"
+        android:text="@string/title_CPU"
         android:textColor="@color/light_blue"
         android:textSize="20sp"
         android:textStyle="bold"
