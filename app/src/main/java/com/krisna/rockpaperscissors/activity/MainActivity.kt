@@ -92,10 +92,6 @@ class MainActivity : AppCompatActivity() {
                 layout.btnBatuCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 layout.btnKertasCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
                 layout.btnGuntingCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-
-                layout.textWin.text = ""
-                layout.textMenang.text = ""
-                layout.textWin.setBackgroundResource(R.drawable.backround_white)
             }
         }
 
