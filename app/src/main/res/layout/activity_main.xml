@@ -117,30 +117,6 @@
         app:layout_constraintTop_toBottomOf="@id/btn_kertas"/>
 
     <TextView
-        android:id="@+id/text_win"
-        android:fontFamily="@font/qarmic_sans"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
-
-    <TextView
-        android:id="@+id/text_menang"
-        android:textStyle="bold"
-        android:fontFamily="@font/qarmic_sans"
-        android:textColor="@color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
-
-    <TextView
         android:id="@+id/text_com"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

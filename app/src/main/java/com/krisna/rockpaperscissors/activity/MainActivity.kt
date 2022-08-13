@@ -127,10 +127,6 @@ class MainActivity : AppCompatActivity() {
     private fun checkResult(playerInput: String, comInput: String) {
         if (playerInput.equals(comInput, true)) {
             Log.d("Hasil", "DRAW")
-//            layout.textWin.text = "DRAW"
-//            layout.textMenang.text = ""
-//            layout.textWin.setBackgroundResource(R.drawable.backround_draw)
-
             val winnerDialogFragment = WinnerDialogFragment("SERI")
             winnerDialogFragment.show(supportFragmentManager, null)
         } else if (playerInput.equals("batu", true) && comInput.equals("gunting", true)
@@ -138,10 +134,6 @@ class MainActivity : AppCompatActivity() {
             || playerInput.equals("gunting", true) && comInput.equals("kertas", true)
         ) {
             Log.d("Hasil", "Pemain 1 Menang")
-//            layout.textWin.text = "Pemain 1\nMENANG!"
-////            layout.textMenang.text = "MENANG!"
-//            layout.textWin.setBackgroundResource(R.drawable.backround_win)
-//            layout.textMenang.setBackgroundResource(R.drawable.backround_win)
             val winnerDialogFragment = WinnerDialogFragment(name)
             winnerDialogFragment.show(supportFragmentManager, null)
         } else if (comInput.equals("batu", true) && playerInput.equals("gunting", true)
@@ -149,10 +141,6 @@ class MainActivity : AppCompatActivity() {
             || comInput.equals("gunting", true) && playerInput.equals("kertas", true)
         ) {
             Log.d("Hasil", "Pemain 2 Menang")
-//            layout.textWin.text = "Pemain 2\nMENANG!"
-////            layout.textMenang.text = "MENANG!"
-//            layout.textWin.setBackgroundResource(R.drawable.backround_win)
-//            layout.textMenang.setBackgroundResource(R.drawable.backround_win)
             val winnerDialogFragment = WinnerDialogFragment("CPU")
             winnerDialogFragment.show(supportFragmentManager, null)
         }
