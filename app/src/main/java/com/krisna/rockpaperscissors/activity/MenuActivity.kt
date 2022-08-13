@@ -24,13 +24,13 @@ class MenuActivity : AppCompatActivity() {
         binding.titleMenuFirst.text = "$str vs Pemain"
         binding.titleMenuSecond.text = "$str vs CPU"
 
-        Snackbar.make(binding.root,"Selamat datang $str", Snackbar.LENGTH_INDEFINITE)
-            .setAction("Tutup"){
+        Snackbar.make(binding.root, "Selamat datang $str", Snackbar.LENGTH_INDEFINITE)
+            .setAction("Tutup") {
 
             }.show()
 
         binding.imageMenuFirst.setOnClickListener {
-
+            vsPlayer(str)
         }
 
         binding.imageMenuSecond.setOnClickListener {
@@ -51,11 +51,21 @@ class MenuActivity : AppCompatActivity() {
         return str
     }
 
-    private fun vsCpu(name: String?){
+    private fun vsCpu(name: String?) {
         val intent = Intent(this, MainActivity::class.java)
         val bundle = Bundle()
 
-        bundle.putString("nameUser" , name)
+        bundle.putString("nameUser", name)
+        intent.putExtras(bundle)
+        startActivity(intent)
+
+    }
+
+    private fun vsPlayer(name: String?) {
+        val intent = Intent(this, AgainstPlayer::class.java)
+        val bundle = Bundle()
+
+        bundle.putString("nameUser", name)
         intent.putExtras(bundle)
         startActivity(intent)
 

@@ -28,7 +28,8 @@ class AgainstPlayer : AppCompatActivity() {
 
         binding.textPemainOne.text = name
 
-        checkResult(playerOneListener(), playerTwoListener())
+        playerOneListener()
+        playerTwoListener()
 
         binding.btnRefresh.setOnClickListener {
             Log.d("User Input", "Button Refresh di Click")
@@ -40,6 +41,10 @@ class AgainstPlayer : AppCompatActivity() {
             binding.btnBatuSecond.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
             binding.btnBatuSecond.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
             binding.btnBatuSecond.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+
+            btnValue(true)
+
+
         }
 
         binding.btnCancel.setOnClickListener {
@@ -51,63 +56,63 @@ class AgainstPlayer : AppCompatActivity() {
     }
 
     private fun btnValue(hasTo: Boolean) {
-        binding.btnGunting.isEnabled = hasTo
-        binding.btnKertas.isEnabled = hasTo
-        binding.btnBatu.isEnabled = hasTo
+        if (hasTo == false) {
+            binding.btnGunting.isEnabled = hasTo
+            binding.btnKertas.isEnabled = hasTo
+            binding.btnBatu.isEnabled = hasTo
+            binding.btnBatuSecond.isEnabled = true
+            binding.btnGuntingSecond.isEnabled = true
+            binding.btnKertasSecond.isEnabled = true
+        } else {
+            binding.btnGunting.isEnabled = true
+            binding.btnKertas.isEnabled = true
+            binding.btnBatu.isEnabled = true
+            binding.btnBatuSecond.isEnabled = false
+            binding.btnGuntingSecond.isEnabled = false
+            binding.btnKertasSecond.isEnabled = false
+        }
     }
 
-    private fun playerOneListener() : String {
-        lateinit var pOneInput: String
+    private fun playerOneListener() {
 
         binding.btnBatu.setOnClickListener {
             Log.d("User 1 Input", "Batu")
             binding.btnBatu.setBackgroundResource(R.drawable.roundcorner)
             btnValue(false)
-            pOneInput = "Batu"
         }
 
         binding.btnKertas.setOnClickListener {
             Log.d("User 1 Input", "Kertas")
             binding.btnBatu.setBackgroundResource(R.drawable.roundcorner)
             btnValue(false)
-            pOneInput = "Kertas"
         }
 
         binding.btnGunting.setOnClickListener {
             Log.d("User 1 Input", "Gunting")
             binding.btnBatu.setBackgroundResource(R.drawable.roundcorner)
             btnValue(false)
-            pOneInput = "Gunting"
         }
-
-        return pOneInput
     }
 
-    private fun playerTwoListener() : String {
-        lateinit var pTwoInput: String
+    private fun playerTwoListener() {
 
         binding.btnBatuSecond.setOnClickListener {
             Log.d("User 1 Input", "Batu")
             binding.btnBatu.setBackgroundResource(R.drawable.roundcorner)
             btnValue(false)
-            pTwoInput = "Batu"
         }
 
         binding.btnKertasSecond.setOnClickListener {
             Log.d("User 1 Input", "Kertas")
             binding.btnBatu.setBackgroundResource(R.drawable.roundcorner)
             btnValue(false)
-            pTwoInput = "Kertas"
         }
 
         binding.btnGuntingSecond.setOnClickListener {
             Log.d("User 1 Input", "Gunting")
             binding.btnBatu.setBackgroundResource(R.drawable.roundcorner)
             btnValue(false)
-            pTwoInput = "Gunting"
         }
-
-        return pTwoInput
     }
 
     private fun checkResult(playerInput: String, secondPlayerInput: String) {
