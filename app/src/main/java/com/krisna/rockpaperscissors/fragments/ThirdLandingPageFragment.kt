@@ -1,6 +1,8 @@
 package com.krisna.rockpaperscissors.fragments
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -28,8 +30,6 @@ class ThirdLandingPageFragment : Fragment(R.layout.fragment_third_landing_page) 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
 
         binding.ivArrow.visibility = View.VISIBLE
 

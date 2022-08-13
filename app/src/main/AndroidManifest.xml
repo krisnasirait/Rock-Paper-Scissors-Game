@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RockPaperScissors">
         <activity
+            android:name=".activity.AgainstPlayer"
+            android:exported="false" />
+        <activity
             android:name=".activity.MenuActivity"
             android:exported="false" />
         <activity
@@ -25,7 +28,7 @@
             android:exported="false" />
         <activity
             android:name=".activity.SplashActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
