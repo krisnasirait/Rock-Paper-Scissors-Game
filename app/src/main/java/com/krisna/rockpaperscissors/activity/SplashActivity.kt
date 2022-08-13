@@ -1,4 +1,4 @@
-package com.krisna.rockpaperscissors
+package com.krisna.rockpaperscissors.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -22,7 +22,7 @@ class SplashActivity : AppCompatActivity() {
 
         activityScope.launch {
             delay(3000)
-            val intent = Intent(this@SplashActivity, MainActivity::class.java)
+            val intent = Intent(this@SplashActivity, LandingActivity::class.java)
             startActivity(intent)
             finish()
         }

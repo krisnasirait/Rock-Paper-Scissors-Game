@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MenuActivity">
+
+    <TextView
+        android:id="@+id/title_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_pilih_lawanmu"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="50dp"
+        android:textSize="20sp"
+        style="@style/MenuTextAppearance"/>
+
+    <ImageView
+        android:id="@+id/image_menuFirst"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/landingpage1"
+        app:layout_constraintTop_toBottomOf="@id/title_menu"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="50dp"/>
+
+    <TextView
+        android:id="@+id/title_menuFirst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_ervin_vs_pemain"
+        app:layout_constraintTop_toBottomOf="@id/image_menuFirst"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="18sp"
+        style="@style/MenuTextAppearance"/>
+
+    <ImageView
+        android:id="@+id/image_menuSecond"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/landingpage2"
+        app:layout_constraintTop_toBottomOf="@id/title_menuFirst"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/title_menuSecond"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_ervin_vs_cpu"
+        app:layout_constraintTop_toBottomOf="@id/image_menuSecond"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="18sp"
+        style="@style/MenuTextAppearance"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,14 +15,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RockPaperScissors">
         <activity
-            android:name=".LandingActivity"
+            android:name=".activity.MenuActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.LandingActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
-            android:exported="true">
+            android:name=".activity.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SplashActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
