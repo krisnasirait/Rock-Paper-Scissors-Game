@@ -1,97 +1,98 @@
 package com.krisna.rockpaperscissors.activity
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.krisna.rockpaperscissors.R
-import com.krisna.rockpaperscissors.databinding.ActivityMainBinding
+import com.krisna.rockpaperscissors.databinding.ActivityAgainstPlayerBinding
 import com.krisna.rockpaperscissors.fragments.WinnerDialogFragment
 import kotlin.random.Random
 
-class MainActivity : AppCompatActivity() {
+class AgainstPlayer : AppCompatActivity() {
 
-    private lateinit var layout: ActivityMainBinding
+    private lateinit var binding: ActivityAgainstPlayerBinding
     private lateinit var name: String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        layout = ActivityMainBinding.inflate(layoutInflater)
-        val view = layout.root
+        binding = ActivityAgainstPlayerBinding.inflate(layoutInflater)
+        val view = binding.root
         setContentView(view)
 
         val bundle = intent.extras
         name = bundle?.getString("nameUser")!!
 
-        layout.textPemainOne.text = name
+        binding.textPemainOne.text = name
 
-        layout.btnBatu.setOnClickListener {
+        binding.btnBatu.setOnClickListener {
             Log.d("User Input", "Batu")
             playerInput("", "Batu")
         }
 
-        layout.btnKertas.setOnClickListener {
+        binding.btnKertas.setOnClickListener {
             Log.d("User Input", "Kertas")
             playerInput("", "Kertas")
         }
 
-        layout.btnGunting.setOnClickListener {
+        binding.btnGunting.setOnClickListener {
             Log.d("User Input", "Gunting")
             playerInput("", "Gunting")
         }
 
-        layout.btnRefresh.setOnClickListener {
+        binding.btnRefresh.setOnClickListener {
             Log.d("User Input", "Button Refresh di Click")
             playerInput("VS", "Reset")
         }
 
-        layout.btnCancel.setOnClickListener {
+        binding.btnCancel.setOnClickListener {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
         }
     }
 
     private fun btnValue(hasTo: Boolean) {
-        layout.btnGunting.isEnabled = hasTo
-        layout.btnKertas.isEnabled = hasTo
-        layout.btnBatu.isEnabled = hasTo
+        binding.btnGunting.isEnabled = hasTo
+        binding.btnKertas.isEnabled = hasTo
+        binding.btnBatu.isEnabled = hasTo
     }
 
     private fun playerInput(textVersus: String, btnPlayer: String) {
 
         when (btnPlayer) {
             "Batu" -> {
-                layout.textVersus.text = textVersus
-                layout.btnBatu.setBackgroundResource(R.drawable.roundcorner)
+                binding.textVersus.text = textVersus
+                binding.btnBatu.setBackgroundResource(R.drawable.roundcorner)
                 checkResult("batu", getBotInput())
                 btnValue(false)
             }
             "Kertas" -> {
-                layout.textVersus.text = textVersus
-                layout.btnKertas.setBackgroundResource(R.drawable.roundcorner)
+                binding.textVersus.text = textVersus
+                binding.btnKertas.setBackgroundResource(R.drawable.roundcorner)
                 checkResult("kertas", getBotInput())
                 btnValue(false)
 
             }
             "Gunting" -> {
-                layout.textVersus.text = textVersus
-                layout.btnGunting.setBackgroundResource(R.drawable.roundcorner)
+                binding.textVersus.text = textVersus
+                binding.btnGunting.setBackgroundResource(R.drawable.roundcorner)
                 checkResult("gunting", getBotInput())
                 btnValue(false)
             }
             "Reset" -> {
                 btnValue(true)
-                layout.textVersus.text = textVersus
+                binding.textVersus.text = textVersus
 
-                layout.btnBatu.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-                layout.btnKertas.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-                layout.btnGunting.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.btnBatu.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.btnKertas.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.btnGunting.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
 
-                layout.btnBatuCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-                layout.btnKertasCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
-                layout.btnGuntingCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.btnBatuCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.btnKertasCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+                binding.btnGuntingCom.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
             }
         }
 
@@ -103,17 +104,17 @@ class MainActivity : AppCompatActivity() {
         when {
             options[botOptions] == "batu" -> {
                 Log.d("Bot Input", "Batu")
-                layout.btnBatuCom.setBackgroundResource(R.drawable.roundcorner)
+                binding.btnBatuCom.setBackgroundResource(R.drawable.roundcorner)
                 toastBot("Batu")
             }
             options[botOptions] == "kertas" -> {
                 Log.d("Bot Input", "Kertas")
-                layout.btnKertasCom.setBackgroundResource(R.drawable.roundcorner)
+                binding.btnKertasCom.setBackgroundResource(R.drawable.roundcorner)
                 toastBot("Kertas")
             }
             options[botOptions] == "gunting" -> {
                 Log.d("Bot Input", "Gunting")
-                layout.btnGuntingCom.setBackgroundResource(R.drawable.roundcorner)
+                binding.btnGuntingCom.setBackgroundResource(R.drawable.roundcorner)
                 toastBot("Gunting")
             }
         }
