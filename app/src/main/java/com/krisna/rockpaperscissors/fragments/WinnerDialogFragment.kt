@@ -8,14 +8,20 @@ import androidx.fragment.app.DialogFragment
 import com.krisna.rockpaperscissors.R
 import com.krisna.rockpaperscissors.databinding.FragmentDialogBinding
 
-class WinnerDialogFragment : DialogFragment(R.layout.fragment_dialog) {
+class WinnerDialogFragment() : DialogFragment(R.layout.fragment_dialog) {
 
     lateinit var name: String
     private var winnerFragmentBinding: FragmentDialogBinding? = null
     private val binding get() = winnerFragmentBinding!!
 
+    constructor(name: String):this(){
+        this.name = name
+    }
+
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         winnerFragmentBinding = FragmentDialogBinding.inflate(inflater, container, false)
@@ -24,13 +30,17 @@ class WinnerDialogFragment : DialogFragment(R.layout.fragment_dialog) {
 
     override fun onResume() {
         super.onResume()
-        dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        dialog?.window?.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.textWinner.text = name
+
+        if (name == "SERI") {
+            binding.textMenang.text = ""
+        }
 
         binding.btnKembalikemenu.setOnClickListener {
 

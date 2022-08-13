@@ -8,11 +8,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.krisna.rockpaperscissors.R
 import com.krisna.rockpaperscissors.databinding.ActivityMainBinding
+import com.krisna.rockpaperscissors.fragments.WinnerDialogFragment
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var layout: ActivityMainBinding
+    private lateinit var name: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,9 +23,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         val bundle = intent.extras
-        val name = bundle?.getString("nameUser")
+        name = bundle?.getString("nameUser")!!
 
-        layout.textPemainOne.text = "$name"
+        layout.textPemainOne.text = name
 
         layout.btnBatu.setOnClickListener {
             Log.d("User Input", "Batu")
@@ -58,6 +60,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun playerInput(textVersus: String, btnPlayer: String) {
+
         when (btnPlayer) {
             "Batu" -> {
                 layout.textVersus.text = textVersus
@@ -124,27 +127,34 @@ class MainActivity : AppCompatActivity() {
     private fun checkResult(playerInput: String, comInput: String) {
         if (playerInput.equals(comInput, true)) {
             Log.d("Hasil", "DRAW")
-            layout.textWin.text = "DRAW"
-            layout.textMenang.text = ""
-            layout.textWin.setBackgroundResource(R.drawable.backround_draw)
+//            layout.textWin.text = "DRAW"
+//            layout.textMenang.text = ""
+//            layout.textWin.setBackgroundResource(R.drawable.backround_draw)
+
+            val winnerDialogFragment = WinnerDialogFragment("SERI")
+            winnerDialogFragment.show(supportFragmentManager, null)
         } else if (playerInput.equals("batu", true) && comInput.equals("gunting", true)
             || playerInput.equals("kertas", true) && comInput.equals("batu", true)
             || playerInput.equals("gunting", true) && comInput.equals("kertas", true)
         ) {
             Log.d("Hasil", "Pemain 1 Menang")
-            layout.textWin.text = "Pemain 1\nMENANG!"
-//            layout.textMenang.text = "MENANG!"
-            layout.textWin.setBackgroundResource(R.drawable.backround_win)
-            layout.textMenang.setBackgroundResource(R.drawable.backround_win)
+//            layout.textWin.text = "Pemain 1\nMENANG!"
+////            layout.textMenang.text = "MENANG!"
+//            layout.textWin.setBackgroundResource(R.drawable.backround_win)
+//            layout.textMenang.setBackgroundResource(R.drawable.backround_win)
+            val winnerDialogFragment = WinnerDialogFragment(name)
+            winnerDialogFragment.show(supportFragmentManager, null)
         } else if (comInput.equals("batu", true) && playerInput.equals("gunting", true)
             || comInput.equals("kertas", true) && playerInput.equals("batu", true)
             || comInput.equals("gunting", true) && playerInput.equals("kertas", true)
         ) {
             Log.d("Hasil", "Pemain 2 Menang")
-            layout.textWin.text = "Pemain 2\nMENANG!"
-//            layout.textMenang.text = "MENANG!"
-            layout.textWin.setBackgroundResource(R.drawable.backround_win)
-            layout.textMenang.setBackgroundResource(R.drawable.backround_win)
+//            layout.textWin.text = "Pemain 2\nMENANG!"
+////            layout.textMenang.text = "MENANG!"
+//            layout.textWin.setBackgroundResource(R.drawable.backround_win)
+//            layout.textMenang.setBackgroundResource(R.drawable.backround_win)
+            val winnerDialogFragment = WinnerDialogFragment("CPU")
+            winnerDialogFragment.show(supportFragmentManager, null)
         }
     }
 
