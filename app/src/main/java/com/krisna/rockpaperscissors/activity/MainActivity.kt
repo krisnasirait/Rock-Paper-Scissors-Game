@@ -1,5 +1,6 @@
 package com.krisna.rockpaperscissors.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -42,6 +43,11 @@ class MainActivity : AppCompatActivity() {
         layout.btnRefresh.setOnClickListener {
             Log.d("User Input", "Button Refresh di Click")
             playerInput("VS", "Reset")
+        }
+
+        layout.btnCancel.setOnClickListener {
+            val intent = Intent(this, MenuActivity::class.java)
+            startActivity(intent)
         }
     }
 

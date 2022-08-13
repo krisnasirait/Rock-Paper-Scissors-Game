@@ -30,6 +30,10 @@ class MenuActivity : AppCompatActivity() {
             }.show()
 
         binding.imageMenuFirst.setOnClickListener {
+
+        }
+
+        binding.imageMenuSecond.setOnClickListener {
             vsCpu(str)
         }
     }
