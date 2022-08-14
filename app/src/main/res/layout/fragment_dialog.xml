@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:background="@drawable/round_corner">
 
         <TextView
             android:id="@+id/title_hasilpermainan"
