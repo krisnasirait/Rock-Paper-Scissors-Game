@@ -4,18 +4,23 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.krisna.rockpaperscissors.R
+import com.krisna.rockpaperscissors.UserData
 import com.krisna.rockpaperscissors.databinding.ActivityAgainstPlayerBinding
 import com.krisna.rockpaperscissors.fragments.WinnerDialogFragment
+import java.util.*
 import kotlin.random.Random
 
 class AgainstPlayer : AppCompatActivity() {
 
     private lateinit var binding: ActivityAgainstPlayerBinding
     private lateinit var name: String
-
+    private var isPlayer1Turn= true;
+    private var player1Input =""
+    private var player2Input =""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,66 +29,85 @@ class AgainstPlayer : AppCompatActivity() {
         setContentView(view)
 
         val bundle = intent.extras
-        name = bundle?.getString("nameUser")!!
+        val userData = bundle?.getParcelable<UserData>("nameUser")!!
+        name = capitalizeFirst(userData.userName) ?: ""
 
         binding.textPemainOne.text = name
-
+        playerInput("VS", "Reset")
         binding.btnBatu.setOnClickListener {
-            Log.d("User Input", "Batu")
-            playerInput("", "Batu")
+            playerInput("", "Batu", binding.btnBatu)
         }
 
         binding.btnKertas.setOnClickListener {
-            Log.d("User Input", "Kertas")
-            playerInput("", "Kertas")
+            playerInput("", "Kertas", binding.btnKertas)
         }
 
         binding.btnGunting.setOnClickListener {
-            Log.d("User Input", "Gunting")
-            playerInput("", "Gunting")
+            playerInput("", "Gunting", binding.btnGunting)
+        }
+        binding.btnBatuCom.setOnClickListener {
+            playerInput("", "Batu", binding.btnBatuCom)
+        }
+
+        binding.btnKertasCom.setOnClickListener {
+            playerInput("", "Kertas", binding.btnKertasCom)
+        }
+
+        binding.btnGuntingCom.setOnClickListener {
+            playerInput("", "Gunting", binding.btnGuntingCom)
         }
 
         binding.btnRefresh.setOnClickListener {
-            Log.d("User Input", "Button Refresh di Click")
             playerInput("VS", "Reset")
         }
 
         binding.btnCancel.setOnClickListener {
-            val intent = Intent(this, MenuActivity::class.java)
-            startActivity(intent)
+            finish()
         }
     }
 
-    private fun btnValue(hasTo: Boolean) {
+    private fun btnValuePlayer1(hasTo: Boolean) {
         binding.btnGunting.isEnabled = hasTo
         binding.btnKertas.isEnabled = hasTo
         binding.btnBatu.isEnabled = hasTo
     }
+    private fun btnValuePlayer2(hasTo: Boolean) {
+        binding.btnGuntingCom.isEnabled = hasTo
+        binding.btnKertasCom.isEnabled = hasTo
+        binding.btnBatuCom.isEnabled = hasTo
+    }
 
-    private fun playerInput(textVersus: String, btnPlayer: String) {
+    private fun playerInput(textVersus: String, btnPlayer: String, btn : ImageButton?= null) {
+        if(isPlayer1Turn){
+            player1Input=btnPlayer
+            isPlayer1Turn= false
+            btnValuePlayer1(false)
+            btnValuePlayer2(true)
+        }else{
+            binding.textVersus.text = textVersus
+            player2Input=btnPlayer
+            checkResult(player1Input, player2Input)
+            if(btnPlayer != "Reset"){
+                toastBot(btnPlayer)
+            }
+        }
 
         when (btnPlayer) {
             "Batu" -> {
-                binding.textVersus.text = textVersus
-                binding.btnBatu.setBackgroundResource(R.drawable.roundcorner)
-                checkResult("batu", getBotInput())
-                btnValue(false)
+                btn?.setBackgroundResource(R.drawable.roundcorner)
             }
             "Kertas" -> {
-                binding.textVersus.text = textVersus
-                binding.btnKertas.setBackgroundResource(R.drawable.roundcorner)
-                checkResult("kertas", getBotInput())
-                btnValue(false)
-
+                btn?.setBackgroundResource(R.drawable.roundcorner)
+//                binding.btnKertas.setBackgroundResource(R.drawable.roundcorner)
             }
             "Gunting" -> {
-                binding.textVersus.text = textVersus
-                binding.btnGunting.setBackgroundResource(R.drawable.roundcorner)
-                checkResult("gunting", getBotInput())
-                btnValue(false)
+                btn?.setBackgroundResource(R.drawable.roundcorner)
+//                binding.btnGunting.setBackgroundResource(R.drawable.roundcorner)
             }
             "Reset" -> {
-                btnValue(true)
+                isPlayer1Turn=true
+                btnValuePlayer1(true)
+                btnValuePlayer2(false)
                 binding.textVersus.text = textVersus
 
                 binding.btnBatu.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
@@ -96,29 +120,6 @@ class AgainstPlayer : AppCompatActivity() {
             }
         }
 
-    }
-
-    private fun getBotInput(): String {
-        val options = arrayOf("batu", "kertas", "gunting")
-        val botOptions: Int = Random.nextInt(options.size)
-        when {
-            options[botOptions] == "batu" -> {
-                Log.d("Bot Input", "Batu")
-                binding.btnBatuCom.setBackgroundResource(R.drawable.roundcorner)
-                toastBot("Batu")
-            }
-            options[botOptions] == "kertas" -> {
-                Log.d("Bot Input", "Kertas")
-                binding.btnKertasCom.setBackgroundResource(R.drawable.roundcorner)
-                toastBot("Kertas")
-            }
-            options[botOptions] == "gunting" -> {
-                Log.d("Bot Input", "Gunting")
-                binding.btnGuntingCom.setBackgroundResource(R.drawable.roundcorner)
-                toastBot("Gunting")
-            }
-        }
-        return options[botOptions]
     }
 
     private fun checkResult(playerInput: String, comInput: String) {
@@ -138,12 +139,25 @@ class AgainstPlayer : AppCompatActivity() {
             || comInput.equals("gunting", true) && playerInput.equals("kertas", true)
         ) {
             Log.d("Hasil", "Pemain 2 Menang")
-            val winnerDialogFragment = WinnerDialogFragment("CPU")
+            val winnerDialogFragment = WinnerDialogFragment("Pemain 2")
             winnerDialogFragment.show(supportFragmentManager, null)
         }
     }
 
     private fun toastBot(choosen: String){
-        Toast.makeText(this, "CPU Memilih $choosen", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Pemain 2 Memilih $choosen", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun capitalizeFirst(name: String?): String? {
+        val str = name?.split(" ")
+            ?.joinToString(separator = " ") { it ->
+                it.replaceFirstChar {
+                    if (it.isLowerCase()) it.titlecase(
+                        Locale.getDefault()
+                    ) else it.toString()
+                }
+            }
+
+        return str
     }
 }

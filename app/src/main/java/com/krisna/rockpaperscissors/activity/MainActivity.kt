@@ -7,8 +7,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.krisna.rockpaperscissors.R
+import com.krisna.rockpaperscissors.UserData
 import com.krisna.rockpaperscissors.databinding.ActivityMainBinding
 import com.krisna.rockpaperscissors.fragments.WinnerDialogFragment
+import java.util.*
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -23,7 +25,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         val bundle = intent.extras
-        name = bundle?.getString("nameUser")!!
+        val userData = bundle?.getParcelable<UserData>("nameUser")!!
+        name = capitalizeFirst(userData.userName) ?: ""
 
         layout.textPemainOne.text = name
 
@@ -48,8 +51,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         layout.btnCancel.setOnClickListener {
-            val intent = Intent(this, MenuActivity::class.java)
-            startActivity(intent)
+            finish()
+//            val intent = Intent(this, MenuActivity::class.java)
+//            startActivity(intent)
         }
     }
 
@@ -142,7 +146,20 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun toastBot(choosen: String){
+    private fun toastBot(choosen: String) {
         Toast.makeText(this, "CPU Memilih $choosen", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun capitalizeFirst(name: String?): String? {
+        val str = name?.split(" ")
+            ?.joinToString(separator = " ") { it ->
+                it.replaceFirstChar {
+                    if (it.isLowerCase()) it.titlecase(
+                        Locale.getDefault()
+                    ) else it.toString()
+                }
+            }
+
+        return str
     }
 }

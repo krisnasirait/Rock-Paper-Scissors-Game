@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
+import com.krisna.rockpaperscissors.UserData
 import com.krisna.rockpaperscissors.databinding.ActivityMenuBinding
 import java.util.*
 
@@ -17,8 +18,9 @@ class MenuActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-
-        val name = intent.getStringExtra("userName")
+        val bundle = intent.extras
+        val user = bundle?.getParcelable<UserData>("nameUser")!!
+        val name = user.userName
         val str = capitalizeFirst(name)
 
         binding.titleMenuFirst.text = "$str vs Pemain"
@@ -30,7 +32,7 @@ class MenuActivity : AppCompatActivity() {
             }.show()
 
         binding.imageMenuFirst.setOnClickListener {
-
+            vsOtherPlayer(name)
         }
 
         binding.imageMenuSecond.setOnClickListener {
@@ -54,8 +56,19 @@ class MenuActivity : AppCompatActivity() {
     private fun vsCpu(name: String?){
         val intent = Intent(this, MainActivity::class.java)
         val bundle = Bundle()
+        val user = UserData()
+        user.userName = name
+        bundle.putParcelable("nameUser" , user)
+        intent.putExtras(bundle)
+        startActivity(intent)
 
-        bundle.putString("nameUser" , name)
+    }
+    private fun vsOtherPlayer(name: String?){
+        val intent = Intent(this, AgainstPlayer::class.java)
+        val bundle = Bundle()
+        val user = UserData()
+        user.userName = name
+        bundle.putParcelable("nameUser" , user)
         intent.putExtras(bundle)
         startActivity(intent)
 

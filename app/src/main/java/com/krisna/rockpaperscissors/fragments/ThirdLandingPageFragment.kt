@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.krisna.rockpaperscissors.R
+import com.krisna.rockpaperscissors.UserData
 import com.krisna.rockpaperscissors.activity.MenuActivity
 import com.krisna.rockpaperscissors.databinding.FragmentThirdLandingPageBinding
 
@@ -41,7 +42,11 @@ class ThirdLandingPageFragment : Fragment(R.layout.fragment_third_landing_page) 
 
                 if(name.isNotEmpty()) {
                     val intent = Intent(it, MenuActivity::class.java)
-                    intent.putExtra("userName", name)
+                    val bundle = Bundle()
+                    val user = UserData()
+                    user.userName = name
+                    bundle.putParcelable("nameUser" , user)
+                    intent.putExtras(bundle)
                     startActivity(intent)
                 } else {
                     Toast.makeText(context, "Nama wajib diisi", Toast.LENGTH_SHORT).show()
