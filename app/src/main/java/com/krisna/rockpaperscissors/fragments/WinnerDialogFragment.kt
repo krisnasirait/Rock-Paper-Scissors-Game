@@ -47,7 +47,7 @@ class WinnerDialogFragment() : DialogFragment(R.layout.fragment_dialog) {
         }
 
         binding.btnmainLagi.setOnClickListener {
-
+            dismiss()
         }
     }
 
