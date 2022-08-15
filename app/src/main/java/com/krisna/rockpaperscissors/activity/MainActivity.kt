@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.krisna.rockpaperscissors.CallBackResultInteraction
 import com.krisna.rockpaperscissors.R
 import com.krisna.rockpaperscissors.UserData
 import com.krisna.rockpaperscissors.databinding.ActivityMainBinding
@@ -13,10 +14,17 @@ import com.krisna.rockpaperscissors.fragments.WinnerDialogFragment
 import java.util.*
 import kotlin.random.Random
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CallBackResultInteraction {
 
     private lateinit var layout: ActivityMainBinding
     private lateinit var name: String
+    override fun finishGame() {
+        finish()
+    }
+
+    override fun resetGame() {
+        playerInput("VS", "Reset")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
