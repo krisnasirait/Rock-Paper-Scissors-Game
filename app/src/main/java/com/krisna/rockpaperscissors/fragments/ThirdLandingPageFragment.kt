@@ -1,8 +1,6 @@
 package com.krisna.rockpaperscissors.fragments
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -38,7 +36,7 @@ class ThirdLandingPageFragment : Fragment(R.layout.fragment_third_landing_page) 
             activity.let {
 
                 val name: String = binding.etLanding.text.toString()
-                Log.d("nameInFragment", "$name")
+                Log.d("nameInFragment", name)
 
                 if(name.isNotEmpty()) {
                     val intent = Intent(it, MenuActivity::class.java)
@@ -49,9 +47,8 @@ class ThirdLandingPageFragment : Fragment(R.layout.fragment_third_landing_page) 
                     intent.putExtras(bundle)
                     startActivity(intent)
                 } else {
-                    Toast.makeText(context, "Nama wajib diisi", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Nama Wajib Diisi", Toast.LENGTH_SHORT).show()
                 }
-
 
             }
 
