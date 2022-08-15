@@ -59,8 +59,6 @@ class MainActivity : AppCompatActivity(), CallBackResultInteraction {
 
         layout.btnCancel.setOnClickListener {
             finish()
-//            val intent = Intent(this, MenuActivity::class.java)
-//            startActivity(intent)
         }
     }
 
