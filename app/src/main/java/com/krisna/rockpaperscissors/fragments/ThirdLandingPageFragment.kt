@@ -49,9 +49,8 @@ class ThirdLandingPageFragment : Fragment(R.layout.fragment_third_landing_page) 
                     intent.putExtras(bundle)
                     startActivity(intent)
                 } else {
-                    Toast.makeText(context, "Nama wajib diisi", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Nama Wajib Diisi", Toast.LENGTH_SHORT).show()
                 }
-
 
             }
 
