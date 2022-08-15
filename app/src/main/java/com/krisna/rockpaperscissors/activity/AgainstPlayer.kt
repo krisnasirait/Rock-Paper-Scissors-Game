@@ -18,7 +18,7 @@ class AgainstPlayer : AppCompatActivity(), CallBackResultInteraction {
 
     private lateinit var binding: ActivityAgainstPlayerBinding
     private lateinit var name: String
-    private var isPlayer1Turn= true;
+    private var isPlayer1Turn= true
     private var player1Input =""
     private var player2Input =""
     override fun finishGame() {
@@ -104,11 +104,9 @@ class AgainstPlayer : AppCompatActivity(), CallBackResultInteraction {
             }
             "Kertas" -> {
                 btn?.setBackgroundResource(R.drawable.roundcorner)
-//                binding.btnKertas.setBackgroundResource(R.drawable.roundcorner)
             }
             "Gunting" -> {
                 btn?.setBackgroundResource(R.drawable.roundcorner)
-//                binding.btnGunting.setBackgroundResource(R.drawable.roundcorner)
             }
             "Reset" -> {
                 isPlayer1Turn=true
