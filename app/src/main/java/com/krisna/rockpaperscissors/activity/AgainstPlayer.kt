@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.krisna.rockpaperscissors.CallBackResultInteraction
 import com.krisna.rockpaperscissors.R
 import com.krisna.rockpaperscissors.UserData
 import com.krisna.rockpaperscissors.databinding.ActivityAgainstPlayerBinding
@@ -14,13 +15,21 @@ import com.krisna.rockpaperscissors.fragments.WinnerDialogFragment
 import java.util.*
 import kotlin.random.Random
 
-class AgainstPlayer : AppCompatActivity() {
+class AgainstPlayer : AppCompatActivity(), CallBackResultInteraction {
 
     private lateinit var binding: ActivityAgainstPlayerBinding
     private lateinit var name: String
     private var isPlayer1Turn= true;
     private var player1Input =""
     private var player2Input =""
+
+    override fun finishGame() {
+        finish()
+    }
+
+    override fun resetGame() {
+        playerInput("VS", "Reset")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
