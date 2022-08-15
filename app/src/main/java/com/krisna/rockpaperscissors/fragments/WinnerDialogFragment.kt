@@ -5,17 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
+import com.krisna.rockpaperscissors.CallBackResultInteraction
 import com.krisna.rockpaperscissors.R
 import com.krisna.rockpaperscissors.databinding.FragmentDialogBinding
 
 class WinnerDialogFragment() : DialogFragment(R.layout.fragment_dialog) {
 
     lateinit var name: String
+    private lateinit var callback: CallBackResultInteraction
     private var winnerFragmentBinding: FragmentDialogBinding? = null
     private val binding get() = winnerFragmentBinding!!
 
-    constructor(name: String):this(){
+
+    constructor(name: String,callback: CallBackResultInteraction):this(){
         this.name = name
+        this.callback = callback
     }
 
 
@@ -43,10 +47,12 @@ class WinnerDialogFragment() : DialogFragment(R.layout.fragment_dialog) {
         }
 
         binding.btnKembalikemenu.setOnClickListener {
-
+            callback.finishGame()
+            dismiss()
         }
 
         binding.btnmainLagi.setOnClickListener {
+            callback.resetGame()
             dismiss()
         }
     }

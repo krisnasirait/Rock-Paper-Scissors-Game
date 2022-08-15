@@ -1,11 +1,10 @@
 package com.krisna.rockpaperscissors.activity
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.krisna.rockpaperscissors.CallBackResultInteraction
 import com.krisna.rockpaperscissors.R
@@ -13,16 +12,15 @@ import com.krisna.rockpaperscissors.UserData
 import com.krisna.rockpaperscissors.databinding.ActivityAgainstPlayerBinding
 import com.krisna.rockpaperscissors.fragments.WinnerDialogFragment
 import java.util.*
-import kotlin.random.Random
 
 class AgainstPlayer : AppCompatActivity(), CallBackResultInteraction {
+
 
     private lateinit var binding: ActivityAgainstPlayerBinding
     private lateinit var name: String
     private var isPlayer1Turn= true;
     private var player1Input =""
     private var player2Input =""
-
     override fun finishGame() {
         finish()
     }
@@ -30,7 +28,6 @@ class AgainstPlayer : AppCompatActivity(), CallBackResultInteraction {
     override fun resetGame() {
         playerInput("VS", "Reset")
     }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAgainstPlayerBinding.inflate(layoutInflater)
@@ -134,21 +131,21 @@ class AgainstPlayer : AppCompatActivity(), CallBackResultInteraction {
     private fun checkResult(playerInput: String, comInput: String) {
         if (playerInput.equals(comInput, true)) {
             Log.d("Hasil", "DRAW")
-            val winnerDialogFragment = WinnerDialogFragment("SERI")
+            val winnerDialogFragment = WinnerDialogFragment("SERI", this)
             winnerDialogFragment.show(supportFragmentManager, null)
         } else if (playerInput.equals("batu", true) && comInput.equals("gunting", true)
             || playerInput.equals("kertas", true) && comInput.equals("batu", true)
             || playerInput.equals("gunting", true) && comInput.equals("kertas", true)
         ) {
             Log.d("Hasil", "Pemain 1 Menang")
-            val winnerDialogFragment = WinnerDialogFragment(name)
+            val winnerDialogFragment = WinnerDialogFragment(name, this)
             winnerDialogFragment.show(supportFragmentManager, null)
         } else if (comInput.equals("batu", true) && playerInput.equals("gunting", true)
             || comInput.equals("kertas", true) && playerInput.equals("batu", true)
             || comInput.equals("gunting", true) && playerInput.equals("kertas", true)
         ) {
             Log.d("Hasil", "Pemain 2 Menang")
-            val winnerDialogFragment = WinnerDialogFragment("Pemain 2")
+            val winnerDialogFragment = WinnerDialogFragment("Pemain 2", this)
             winnerDialogFragment.show(supportFragmentManager, null)
         }
     }
