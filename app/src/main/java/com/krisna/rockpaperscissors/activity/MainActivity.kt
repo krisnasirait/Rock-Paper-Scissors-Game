@@ -134,21 +134,21 @@ class MainActivity : AppCompatActivity(), CallBackResultInteraction {
     private fun checkResult(playerInput: String, comInput: String) {
         if (playerInput.equals(comInput, true)) {
             Log.d("Hasil", "DRAW")
-            val winnerDialogFragment = WinnerDialogFragment("SERI")
+            val winnerDialogFragment = WinnerDialogFragment("SERI", this)
             winnerDialogFragment.show(supportFragmentManager, null)
         } else if (playerInput.equals("batu", true) && comInput.equals("gunting", true)
             || playerInput.equals("kertas", true) && comInput.equals("batu", true)
             || playerInput.equals("gunting", true) && comInput.equals("kertas", true)
         ) {
             Log.d("Hasil", "Pemain 1 Menang")
-            val winnerDialogFragment = WinnerDialogFragment(name)
+            val winnerDialogFragment = WinnerDialogFragment(name, this)
             winnerDialogFragment.show(supportFragmentManager, null)
         } else if (comInput.equals("batu", true) && playerInput.equals("gunting", true)
             || comInput.equals("kertas", true) && playerInput.equals("batu", true)
             || comInput.equals("gunting", true) && playerInput.equals("kertas", true)
         ) {
             Log.d("Hasil", "Pemain 2 Menang")
-            val winnerDialogFragment = WinnerDialogFragment("CPU")
+            val winnerDialogFragment = WinnerDialogFragment("CPU", this)
             winnerDialogFragment.show(supportFragmentManager, null)
         }
     }
