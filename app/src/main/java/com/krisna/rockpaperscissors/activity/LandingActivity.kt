@@ -1,5 +1,6 @@
 package com.krisna.rockpaperscissors.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.krisna.rockpaperscissors.adapter.LandingPageAdapter
@@ -21,6 +22,14 @@ class LandingActivity : AppCompatActivity() {
         val pagerAdapter = LandingPageAdapter(
             fragmentActivity = this,
         )
+
+        val sharedPreferences = getSharedPreferences("prefRPS", 0)
+        val isFirstTime = sharedPreferences.getString("isFirst", "")
+        val userName = sharedPreferences.getString("userName", "")
+
+        if (!isFirstTime.isNullOrEmpty() && !userName.isNullOrEmpty()) {
+            startActivity(Intent(this, MenuActivity::class.java))
+        }
 
         pagerAdapter.setFragments(
             listOf(

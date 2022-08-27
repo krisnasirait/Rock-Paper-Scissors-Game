@@ -18,10 +18,11 @@ class MenuActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val bundle = intent.extras
-        val user = bundle?.getParcelable<UserData>("nameUser")!!
-        val name = user.userName
-        val str = capitalizeFirst(name)
+        val sharedPreferences = getSharedPreferences("prefRPS", 0)
+
+        val username = sharedPreferences.getString("userName", "")
+
+        val str = capitalizeFirst(username)
 
         binding.titleMenuFirst.text = "$str vs Pemain"
         binding.titleMenuSecond.text = "$str vs CPU"
@@ -32,7 +33,7 @@ class MenuActivity : AppCompatActivity() {
             }.show()
 
         binding.imageMenuFirst.setOnClickListener {
-            vsOtherPlayer(name)
+            vsOtherPlayer(username)
         }
 
         binding.imageMenuSecond.setOnClickListener {
